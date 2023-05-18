@@ -275,8 +275,8 @@ function clearMessage() {
   </div>
 
   <ClientOnly>
-    <el-dialog v-model="appStore.apiKeyFormStatus" title="请输入您的ApiKey" width="30%" align-center>
-      <el-form ref="formRef" :model="formValue" label-width="100px" class="demo-ruleForm">
+    <el-dialog v-model="appStore.apiKeyFormStatus" title="请输入您的ApiKey" align-center>
+      <el-form ref="formRef" :model="formValue" label-width="70px" class="demo-ruleForm">
         <el-form-item
           label="ApiKey" prop="apiKey" :rules="[
             { required: true, message: '请输入apiKey' },
