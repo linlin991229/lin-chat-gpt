@@ -19,7 +19,7 @@ async function submitForm(formEl: FormInstance | undefined) {
     if (valid) {
       getBill()
       appStore.changeApiKeyFormStatus()
-      // localStorage.setItem('apiKey', formValue.apiKey)
+      localStorage.setItem('apiKey', formValue.apiKey)
     }
   })
 }
@@ -193,6 +193,13 @@ function readCache() {
       content.value.scrollTop = content.value.scrollHeight
   })
 }
+// 清空消息
+function clearMessage() {
+  recordList.items = []
+  messages.value = []
+  localStorage.removeItem('recordList')
+  localStorage.removeItem('messages')
+}
 </script>
 
 <template>
@@ -259,6 +266,9 @@ function readCache() {
         <MyButton min-w-fit @click="handlerSend">
           <Loading v-if="isLoading" />
           {{ isLoading ? '' : '发送' }}
+        </MyButton>
+        <MyButton @click="clearMessage">
+          清空
         </MyButton>
       </div>
     </div>
